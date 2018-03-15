@@ -70,7 +70,7 @@ class rex_media_srcset
     {
         $params = $ep->getParams(); // let's get the parameters
         $subject = $ep->getSubject(); // and the effects array
-        $db_uscore = strpos($params['rex_media_type'],'__');
+        $db_uscore = strpos($params['rex_media_type'],'-');
 
         if($db_uscore > 0)
         {
@@ -409,7 +409,7 @@ class rex_media_srcset
                         if($set = static::getSingleSet($item))
                         {
                             // the single item could be parsed,let's store it in the array
-                            $single_srcset[(string) $set['image_width']] = static::generateMediaImageUrl($type . '__' . ((string) $set['image_width']), '{rex_media_file}') . ' ' . ((string) $set['viewport_width']) . 'w';
+                            $single_srcset[(string) $set['image_width']] = static::generateMediaImageUrl($type . '-' . ((string) $set['image_width']), '{rex_media_file}') . ' ' . ((string) $set['viewport_width']) . 'w';
                         }
                         unset($set);
                     }
